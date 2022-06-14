@@ -28,4 +28,10 @@ public interface RespuestaRepo extends JpaRepository<Respuesta, Integer> {
             "group by p.enunciado " +
             "order by 1", nativeQuery = true)
     List<Object[]> getPromedioPreguntas();
+
+    @Query(value = "select avg(valoracion) promedio from respuesta where id_pregunta = ?", nativeQuery = true)
+    Double getPromedioValoracionPregunta(Integer idItem);
+
+    @Query(value = "select valoracion from respuesta where id_pregunta = ?", nativeQuery = true)
+    List<Double> getValoracionesPregunta(Integer idItem);
 }

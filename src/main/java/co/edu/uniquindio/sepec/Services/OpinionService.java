@@ -29,7 +29,7 @@ public class OpinionService {
     }
 
     @Transactional
-    public List<Object[]> getPromedioOpinion(){
+    public List<Object[]> getPromedioOpinion() {
         return opinionRepo.getPromedioOpinion();
     }
 }

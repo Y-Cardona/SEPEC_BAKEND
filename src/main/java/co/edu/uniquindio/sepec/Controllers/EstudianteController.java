@@ -26,7 +26,7 @@ public class EstudianteController {
                 JSONObject objetoJson = new JSONObject();
                 objetoJson.put("Codigo error", HttpStatus.BAD_REQUEST.value());
                 objetoJson.put("Descripción error", HttpStatus.BAD_REQUEST);
-                objetoJson.put("Mensaje", "No es posible registrar el Estudiante, puede que ya exista uno con el mismo nombre");
+                objetoJson.put("Mensaje", "No es posible registrar el Estudiante, puede que ya exista uno con el mismo codigo");
                 String jsonString = objetoJson.toString();
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(jsonString);
             }

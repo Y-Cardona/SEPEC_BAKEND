@@ -1,26 +1,26 @@
 package co.edu.uniquindio.sepec.Controllers;
 
-import co.edu.uniquindio.sepec.Services.PuntoService;
+import co.edu.uniquindio.sepec.Services.CoeficienteService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @CrossOrigin(origins = "*")
-@RequestMapping("puntos")
-public class PuntoController {
+@RequestMapping("coeficiente")
+public class CoeficienteController {
 
     @Autowired
-    private PuntoService puntoService;
+    private CoeficienteService coeficienteService;
 
-    @GetMapping("/obtener/{idPregunta}")
-    public ResponseEntity<?> getUserSearch(@PathVariable Integer idPregunta) {
+    @GetMapping("/obtener")
+    public ResponseEntity<?> getCoeficiente(@RequestParam Integer idItem, @RequestParam Integer idPregunta) {
         try {
-
             return ResponseEntity.status(HttpStatus.OK).body(
-                    puntoService.findPuntoIdPregunta(idPregunta));
+                    coeficienteService.getCoeficiente(idItem, idPregunta));
         } catch (Exception e) {
             System.out.println(e.getMessage());
             JSONObject objetoJson = new JSONObject();
@@ -31,5 +31,5 @@ public class PuntoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(jsonString);
         }
     }
-}
 
+}
