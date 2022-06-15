@@ -17,7 +17,7 @@ public class RespuestaController {
     private RespuestaService respuestaService;
 
     @PostMapping("/crear")
-    public ResponseEntity<?> createEstudiante(@RequestBody Respuesta respuesta){
+    public ResponseEntity<?> createRespuesta(@RequestBody Respuesta respuesta){
         try {
             if(respuestaService.createRespuesta(respuesta)) {
                 return ResponseEntity.status(HttpStatus.CREATED).body(null);

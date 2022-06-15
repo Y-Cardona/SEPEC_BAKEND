@@ -17,7 +17,8 @@ public class CoeficienteController {
     private CoeficienteService coeficienteService;
 
     @GetMapping("/obtener")
-    public ResponseEntity<?> getCoeficiente(@RequestParam Integer idItem, @RequestParam Integer idPregunta) {
+    public ResponseEntity<?> getCoeficiente(@RequestParam Integer idItem,
+                                            @RequestParam Integer idPregunta) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(
                     coeficienteService.getCoeficiente(idItem, idPregunta));

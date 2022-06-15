@@ -13,11 +13,11 @@ public class EstudianteService {
     private EstudianteRepo estudianteRepo;
     @Transactional
     public boolean createEstudiante(Estudiante estudiante) {
-        if (estudianteRepo.findById(estudiante.getCodigo()) != null) {
-            estudianteRepo.save(estudiante);
-            return true;
+        if(estudianteRepo.existsById(estudiante.getCodigo())) {
+            return false;
         }
-        return false;
+        estudianteRepo.save(estudiante);
+        return true;
     }
 
     @Transactional
